@@ -1,4 +1,4 @@
-import socket, time
+import socket, time, os
 
 Siyah='\033[30m'
 Kirmizi='\033[31m'
@@ -52,6 +52,33 @@ def netcheck():
     except Exception:
         print(Kirmizi+"[*]You Are Offline")
         print(Kirmizi+"Exiting ...")
-        time.sleep(3)
+        time.sleep(1)
         exit()
+
+def clear():
+    if os.name == "nt":
+        os.system("cls")
+    elif os.name == "posix":
+        os.system("clear")
+
+def IP(ip):
+    if ip == "local":
+        hostname = socket.gethostname()
+        local_ip = socket.gethostbyname(hostname)
+        print(local_ip)
+    elif ip == "global":
+        os.system("curl ip.me")
+
+def checkroot(message,color):
+    if os.getuid() != 0:
+        print(color+message)
+
+def find_web_site_ip(url):
+    website = socket.gethostbyname(url)
+    print(website)
+
+
+
+
+
 
