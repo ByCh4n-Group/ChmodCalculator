@@ -1,29 +1,41 @@
 import tkinter as tk
 import os
 from modules import *
-
 if os.name == "nt":
-    os.system("cls")
+    if os.path.isfile(".\modules.py") == True:
+        pass
+    elif os.path.isfile(".\modules.py") == False:
+        print(Kirmizi+"Please Delete and Reinstall Tool!")
+        exit()
+    if os.path.isfile(".\simge.ico") == True:
+        pass
+    elif os.path.isfile(".\simge.ico") == False:
+        print(Kirmizi+"Please Delete and Reinstall Tool!")
+        exit()
 elif os.name == "posix":
-    os.system("clear")
+    if os.path.isfile("./modules.py") == True:
+        pass
+    elif os.path.isfile("./modules.py") == False:
+        print(Kirmizi+"Please Delete and Reinstall Tool!")
+        exit()
+    if os.path.isfile("./simge.xbm") == True:
+        pass
+    elif os.path.isfile("./simge.xbm") == False:
+        print(Kirmizi+"Please Delete and Reinstall Tool!")
+        exit()
+        
 
-banner = Beyaz+"""
-██╗      ██████╗  ██████╗ ███████╗
-██║     ██╔═══██╗██╔════╝ ██╔════╝
-██║     ██║   ██║██║  ███╗███████╗
-██║     ██║   ██║██║   ██║╚════██║
-███████╗╚██████╔╝╚██████╔╝███████║
-╚══════╝ ╚═════╝  ╚═════╝ ╚══════╝
-"""
-
-print(banner)
+clear()
 
 window = tk.Tk()
 #Head
 window.title("Chmod Calculator")
 window.geometry("500x250")
 window.resizable(False,False)
-window.iconbitmap(r"simge.ico")
+if os.name == "nt":
+    window.iconbitmap(r"simge.ico")
+elif os.name == "posix":
+    window.iconbitmap(r"simge.xbm")
 
 #Body
 
@@ -59,52 +71,92 @@ other3.set(0)
 
 
 #function
-value=0
 def chx():
     value=0
     if owner1.get() == 0:
-        pass
+        rwx1.config(text="-")
     else:
         value+=400
+        rwx1.config(text="r")
+        if value >=100 or value <= 700:
+            zero.config(text="")
+            zero.place(x=100 , y=175)
     if owner2.get() == 0:
-        pass
+        rwx2.config(text="-")
     else:
         value+=200
+        rwx2.config(text="w")
+        if value >=100 or value <= 700:
+            zero.config(text="")
+            zero.place(x=100 , y=175)
     if owner3.get() == 0:
-        pass
+        rwx3.config(text="-")
     else:
         value+=100
+        rwx3.config(text="x")
+        if value >=100 or value <= 700:
+            zero.config(text="")
+            zero.place(x=100 , y=175)
+
 
     if group1.get() == 0:
-        pass
+        rwx4.config(text="-")
     else:
         value+=40
+        rwx4.config(text="r")
+        if value >= 10 and value <= 70:
+            zero.config(text="0")
+            zero.place(x=158 , y=175)
     if group2.get() == 0:
-        pass
+        rwx5.config(text="-")
     else:
         value+=20
+        rwx5.config(text="w")
+        if value >= 10 and value <= 70:
+            zero.config(text="0")
+            zero.place(x=158 , y=175)
     if group3.get() == 0:
-        value+0
+        rwx6.config(text="-")
     else:
         value+=10
+        rwx6.config(text="x")
+        if value >= 10 and value <= 70:
+            zero.config(text="0")
+            zero.place(x=158 , y=175)
     
+
     if other1.get() == 0:
-        pass
+        rwx7.config(text="-")
     else:
         value+=4
+        rwx7.config(text="r")
+        if value >= 1 and value <= 7:
+            zero.config(text="00")
+            zero.place(x=150 , y=175)
     if other2.get() == 0:
-        pass
+        rwx8.config(text="-")
     else:
         value+=2
+        rwx8.config(text="w")
+        if value >= 1 and value <= 7:
+            zero.config(text="00")
+            zero.place(x=150 , y=175)
     if other3.get() == 0:
-        pass
+        rwx9.config(text="-")
     else:
         value+=1
-    if os.name == "nt":
-        os.system("cls")
-    elif os.name == "posix":
-        os.system("clear")
-    print(value)
+        rwx9.config(text="x")
+        if value >= 1 and value <= 7:
+            zero.config(text="00")
+            zero.place(x=150 , y=175)
+    if value == 0:
+        result.config(text="000")
+
+    result.config(text=value)
+    
+
+
+
 
 #Owner
 
@@ -128,9 +180,65 @@ checkbox6.place(x=50, y=105)
 label2 = tk.Label(window, text="Group", font="20")
 label2.pack()
 
-result = tk.Label(window, text="Our answer will appear in Terminal", font="20")
+result = tk.Label(window, text=" ", font="20")
 result.pack()
-result.place(x=125, y=175)
+result.place(x=170, y=175)
+
+zero = tk.Label(window, text=" ", font="20")
+zero.pack()
+zero.place(x=130 , y=175)
+
+
+rwx1 = tk.Label(window, text="-", font="20")
+rwx1.pack()
+rwx1.place(x=300, y=175)
+
+rwx2 = tk.Label(window, text="-", font="20")
+rwx2.pack()
+rwx2.place(x=315, y=175)
+
+rwx3 = tk.Label(window, text="-", font="20")
+rwx3.pack()
+rwx3.place(x=330, y=175)
+
+bosluk1 = tk.Label(window, text=" ")
+bosluk1.pack()
+bosluk1.place(x=345 ,y=175)
+
+
+rwx4 = tk.Label(window, text="-", font="20")
+rwx4.pack()
+rwx4.place(x=360, y=175)
+
+rwx5 = tk.Label(window, text="-", font="20")
+rwx5.pack()
+rwx5.place(x=375, y=175)
+
+rwx6 = tk.Label(window, text="-", font="20")
+rwx6.pack()
+rwx6.place(x=390, y=175)
+
+bosluk3 = tk.Label(window, text=" ")
+bosluk3.pack()
+bosluk3.place(x=405 ,y=175)
+
+
+rwx7 = tk.Label(window, text="-", font="20")
+rwx7.pack()
+rwx7.place(x=420, y=175)
+
+rwx8 = tk.Label(window, text="-", font="20")
+rwx8.pack()
+rwx8.place(x=435, y=175)
+
+rwx9 = tk.Label(window, text="-", font="20")
+rwx9.pack()
+rwx9.place(x=450, y=175)
+
+
+
+
+
 
 checkbox1 = tk.Checkbutton(window, text="Read", font="15", variable=group1, command=chx)
 checkbox1.pack()
