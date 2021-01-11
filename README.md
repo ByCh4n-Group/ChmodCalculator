@@ -32,14 +32,6 @@ Linux - Installation(Kurulum):
 
 - python3 main.py
 
-Termux - Installation(Kurulum):
---
-- git clone https://github.com/xRiseStrqfe/ChmodCalculator
-
-- cd ChmodCalculator
-
-- python3 main.py
-
 --------------------------------------------------------------------------
 
 - Dilerim Ki Sizler İçin Yararlı Olmuştur. :)
@@ -48,8 +40,7 @@ Termux - Installation(Kurulum):
 
 - Linux ✔
 
-- Termux ✔
 
-![1](https://cdn.discordapp.com/attachments/742135407583559690/797736464393437214/log.PNG)
+![1](https://cdn.discordapp.com/attachments/742135407583559690/798202068967227442/gui2.PNG)
 
-![2](https://cdn.discordapp.com/attachments/742135407583559690/797736459032723476/test.PNG)
+![2](https://cdn.discordapp.com/attachments/742135407583559690/798202072079925258/gui3.PNG)
