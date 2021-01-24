@@ -26,7 +26,7 @@ It Is Very Simple To Use And A Program Written On Python. 💯
 
 Linux - Installation(Kurulum):
 --
-- git clone https://github.com/xRiseStrqfe/ChmodCalculator
+- git clone https://github.com/ByCh4n-Group/ChmodCalculator
 
 - cd ChmodCalculator
 
