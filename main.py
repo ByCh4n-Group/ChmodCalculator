@@ -1,27 +1,33 @@
 import tkinter as tk
-import os
+import os, time
+from tkinter import messagebox
 from modules import *
+
 if os.name == "nt":
     if os.path.isfile(".\modules.py") == True:
         pass
     elif os.path.isfile(".\modules.py") == False:
-        print(Kirmizi+"Please Delete and Reinstall Tool!")
+        messagebox.showerror("Error","A File Is Not Found! modules.py")
+        time.sleep(2)
         exit()
     if os.path.isfile(".\simge.ico") == True:
         pass
     elif os.path.isfile(".\simge.ico") == False:
-        print(Kirmizi+"Please Delete and Reinstall Tool!")
+        messagebox.showerror("Error","A File Is Not Found! simge.ico")
+        time.sleep(2)
         exit()
 elif os.name == "posix":
     if os.path.isfile("./modules.py") == True:
         pass
     elif os.path.isfile("./modules.py") == False:
-        print(Kirmizi+"Please Delete and Reinstall Tool!")
+        messagebox.showerror("Error","A File Is Not Found! modules.py")
+        time.sleep(2)
         exit()
     if os.path.isfile("./simge.xbm") == True:
         pass
     elif os.path.isfile("./simge.xbm") == False:
-        print(Kirmizi+"Please Delete and Reinstall Tool!")
+        messagebox.showerror("Error","A File Is Not Found! simge.xbm")
+        time.sleep(2)
         exit()
         
 
@@ -153,7 +159,6 @@ def chx():
         result.config(text="000")
 
     result.config(text=value)
-    
 
 
 
