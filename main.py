@@ -10,23 +10,11 @@ if os.name == "nt":
         messagebox.showerror("Error","A File Is Not Found! modules.py")
         time.sleep(2)
         exit()
-    if os.path.isfile(".\simge.ico") == True:
-        pass
-    elif os.path.isfile(".\simge.ico") == False:
-        messagebox.showerror("Error","A File Is Not Found! simge.ico")
-        time.sleep(2)
-        exit()
 elif os.name == "posix":
     if os.path.isfile("./modules.py") == True:
         pass
     elif os.path.isfile("./modules.py") == False:
         messagebox.showerror("Error","A File Is Not Found! modules.py")
-        time.sleep(2)
-        exit()
-    if os.path.isfile("./simge.xbm") == True:
-        pass
-    elif os.path.isfile("./simge.xbm") == False:
-        messagebox.showerror("Error","A File Is Not Found! simge.xbm")
         time.sleep(2)
         exit()
         
@@ -38,10 +26,7 @@ window = tk.Tk()
 window.title("Chmod Calculator")
 window.geometry("500x250")
 window.resizable(False,False)
-if os.name == "nt":
-    window.iconbitmap(r"simge.ico")
-elif os.name == "posix":
-    window.iconbitmap(r"simge.xbm")
+
 
 #Body
 
