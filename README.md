@@ -30,6 +30,8 @@ Linux - Installation(Kurulum):
 
 - cd ChmodCalculator
 
+- pip3 install -r requirements.txt
+
 - python3 main.py
 
 --------------------------------------------------------------------------
