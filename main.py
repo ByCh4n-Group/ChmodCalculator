@@ -1,30 +1,21 @@
 import tkinter as tk
-import os, time
+import os, time, pyperclip
 from tkinter import messagebox
 from modules import *
+from tkinter.filedialog import askopenfilename
 
 if os.name == "nt":
     if os.path.isfile(".\modules.py") == True:
         pass
-    elif os.path.isfile(".\modules.py") == False:
-        messagebox.showerror("Error","A File Is Not Found! modules.py")
-        time.sleep(2)
-        exit()
 elif os.name == "posix":
     if os.path.isfile("./modules.py") == True:
-        pass
-    elif os.path.isfile("./modules.py") == False:
-        messagebox.showerror("Error","A File Is Not Found! modules.py")
-        time.sleep(2)
-        exit()
-        
+        pass     
 
-clear()
 
 window = tk.Tk()
 #Head
 window.title("Chmod Calculator")
-window.geometry("500x250")
+window.geometry("500x350")
 window.resizable(False,False)
 
 
@@ -61,9 +52,11 @@ other2.set(0)
 other3.set(0)
 
 
-#function
+#functions
+value=""
 def chx():
-    value=0
+    global value
+    value=0 
     if owner1.get() == 0:
         rwx1.config(text="-")
     else:
@@ -144,9 +137,13 @@ def chx():
         result.config(text="000")
 
     result.config(text=value)
-
-
-
+path=""
+def askfile():
+    filepath = askopenfilename()
+    global path
+    path = "chmod "+str(value)+" "+ filepath
+def copy():
+    pyperclip.copy(path)
 
 #Owner
 
@@ -259,5 +256,16 @@ checkbox9 = tk.Checkbutton(window, text="Execute", font="15", variable=other3, c
 checkbox9.pack()
 checkbox9.place(x=400, y=105)
 
+
+
+
+
+askfile = tk.Button(window, text="Select File", command=askfile)
+askfile.pack()
+askfile.place(x=400,y=250)
+
+copy_button = tk.Button(window, text="Copy Command", command=copy)
+copy_button.pack()
+copy_button.place(x=400,y=280)
 
 window.mainloop()
